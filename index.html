@@ -1,2 +1,207 @@
-<h1>hello work</h1>
-<h1>this is test official website</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLinux - 自研开源操作系统</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入开源字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        dark: '#1D2939',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .nav-fixed {
+                @apply fixed w-full top-0 z-50 bg-white/95 shadow-sm backdrop-blur-sm;
+            }
+            .btn-primary {
+                @apply bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/20;
+            }
+            .btn-outline {
+                @apply border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/5 transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- 顶部导航栏 -->
+    <nav class="nav-fixed">
+        <div class="container mx-auto px-4 md:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold text-primary">MyLinux</a>
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="font-medium text-primary border-b-2 border-primary py-1">首页</a>
+                    <a href="download.html" class="font-medium text-gray-600 hover:text-primary transition-colors py-1">下载系统</a>
+                    <a href="docs.html" class="font-medium text-gray-600 hover:text-primary transition-colors py-1">官方文档</a>
+                    <a href="about.html" class="font-medium text-gray-600 hover:text-primary transition-colors py-1">关于我们</a>
+                </div>
+                <!-- 快速下载按钮 -->
+                <a href="download.html" class="hidden md:block btn-primary">立即下载</a>
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-dark text-xl">☰</button>
+            </div>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="index.html" class="font-medium text-primary">首页</a>
+                <a href="download.html" class="font-medium text-gray-600 hover:text-primary">下载系统</a>
+                <a href="docs.html" class="font-medium text-gray-600 hover:text-primary">官方文档</a>
+                <a href="about.html" class="font-medium text-gray-600 hover:text-primary">关于我们</a>
+                <a href="download.html" class="btn-primary text-center">立即下载</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 全屏Hero横幅 -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-primary/5 to-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                <div class="md:w-1/2">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-6">
+                        轻量、稳定、安全的<br/>自研开源 Linux 系统
+                    </h1>
+                    <p class="text-gray-600 text-lg md:text-xl mb-8 max-w-xl">
+                        MyLinux 基于原生Linux内核深度定制，兼顾桌面美观与服务器稳定性，开源免费、轻量化低功耗，适配个人办公、开发部署、日常使用全场景。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="download.html" class="btn-primary">下载最新版本</a>
+                        <a href="docs.html" class="btn-outline">查看安装文档</a>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-6">最新版本：v1.0.0 稳定版 | 发布时间：2026-07-01</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-xl shadow-2xl shadow-primary/10 overflow-hidden border-4 border-white">
+                        <!-- 系统截图占位，可自行替换 -->
+                        <div class="bg-primary/10 h-64 md:h-80 flex items-center justify-center text-primary text-xl">
+                            MyLinux 系统界面预览图
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系统核心特性 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">核心优势特性</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">深耕轻量化Linux定制，兼顾性能、安全与易用性，适配多场景使用需求</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特性卡片1 -->
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3 text-primary">极致轻量高效</h3>
+                    <p class="text-gray-600">精简冗余组件，优化内核调度机制，低内存占用、低功耗，老旧设备也能流畅运行，开机速度、运行效率大幅提升。</p>
+                </div>
+                <!-- 特性卡片2 -->
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3 text-primary">安全稳定可靠</h3>
+                    <p class="text-gray-600">默认开启安全防护机制，定期修复内核漏洞，摒弃冗余服务，系统运行稳定，无卡顿、无蓝屏，适配长期运行场景。</p>
+                </div>
+                <!-- 特性卡片3 -->
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3 text-primary">开源免费透明</h3>
+                    <p class="text-gray-600">全程开源可查，遵循开源协议，无捆绑、无广告、无隐私收集，代码完全公开，可自由修改、编译、二次分发。</p>
+                </div>
+                <!-- 特性卡片4 -->
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3 text-primary">适配性极强</h3>
+                    <p class="text-gray-600">兼容主流Linux软件生态，支持APT/YUM软件源，适配桌面办公、后端开发、服务器部署、嵌入式调试等多场景。</p>
+                </div>
+                <!-- 特性卡片5 -->
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3 text-primary">极简易用设计</h3>
+                    <p class="text-gray-600">本土化优化UI界面，操作逻辑简洁易懂，新手零门槛上手，自带常用办公、开发工具，开箱即用无需繁琐配置。</p>
+                </div>
+                <!-- 特性卡片6 -->
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold mb-3 text-primary">持续迭代更新</h3>
+                    <p class="text-gray-600">长期维护更新，持续优化系统性能、修复漏洞、迭代新功能，提供完善的技术文档与社区支持。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速下载入口 -->
+    <section class="py-20 bg-primary/5">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">立即体验 MyLinux</h2>
+            <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">下载最新稳定版本，开启轻量化开源系统体验，支持一键安装、全程图文教程指导</p>
+            <a href="download.html" class="btn-primary text-lg px-8 py-4">获取最新ISO镜像</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MyLinux</h3>
+                    <p class="text-gray-400 text-sm">自研轻量化开源Linux操作系统，专注稳定、安全、易用。</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">首页</a></li>
+                        <li><a href="download.html" class="hover:text-white transition-colors">系统下载</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">官方文档</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">关于项目</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">开源支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">GitHub仓库</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">更新日志</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">开源协议</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">帮助支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="docs.html" class="hover:text-white transition-colors">安装教程</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">常见问题</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500 text-sm">
+                © 2026 MyLinux. All Rights Reserved. 遵循开源协议开源免费
+            </div>
+        </div>
+    </footer>
+
+    <!-- 移动端菜单JS -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方文档 - MyLinux 开源系统教程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        dark: '#1D2939',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {content-visibility: auto;}
+            .nav-fixed {@apply fixed w-full top-0 z-50 bg-white/95 shadow-sm backdrop-blur-sm;}
+            .btn-primary {@apply bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/20;}
+            .btn-outline {@apply border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/5 transition-all duration-300;}
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- 导航栏 -->
+    <nav class="nav-fixed">
+        <div class="container mx-auto px-4 md:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold text-primary">MyLinux</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition-colors py-1">首页</a>
+                    <a href="download.html" class="font-medium text-gray-600 hover:text-primary transition-colors py-1">下载系统</a>
+                    <a href="docs.html" class="font-medium text-primary border-b-2 border-primary py-1">官方文档</a>
+                    <a href="about.html" class="font-medium text-gray-600 hover:text-primary transition-colors py-1">关于我们</a>
+                </div>
+                <a href="download.html" class="hidden md:block btn-primary">立即下载</a>
+                <button id="menuBtn" class="md:hidden text-dark text-xl">☰</button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                <a href="download.html" class="font-medium text-gray-600 hover:text-primary">下载系统</a>
+                <a href="docs.html" class="font-medium text-primary">官方文档</a>
+                <a href="about.html" class="font-medium text-gray-600 hover:text-primary">关于我们</a>
+                <a href="download.html" class="btn-primary text-center">立即下载</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 文档头部 -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-primary/5 to-white">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">官方使用文档</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">最全的安装教程、使用指南、问题解答，助力新手快速上手MyLinux系统</p>
+        </div>
+    </section>
+
+    <!-- 文档主体 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- 侧边栏目录 -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-28 bg-light p-6 rounded-xl shadow-sm">
+                        <h3 class="text-lg font-semibold mb-4 pb-2 border-b">文档目录</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li><a href="#install" class="hover:text-primary transition-colors">系统安装教程</a></li>
+                            <li><a href="#use" class="hover:text-primary transition-colors">基础使用指南</a></li>
+                            <li><a href="#repo" class="hover:text-primary transition-colors">软件仓库说明</a></li>
+                            <li><a href="#faq" class="hover:text-primary transition-colors">常见问题FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 文档内容 -->
+                <div class="lg:col-span-3">
+                    <div id="install" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-6 pb-2 border-b">一、系统安装教程</h2>
+                        <p class="text-gray-600 mb-4">MyLinux系统支持物理机、虚拟机安装，以下为通用分步安装教程，新手可跟随操作。</p>
+                        <ol class="list-decimal list-inside space-y-3 text-gray-600">
+                            <li>前往【系统下载】页面，下载最新ISO镜像文件，并核对SHA256校验码</li>
+                            <li>使用U盘启动盘制作工具，将ISO文件写入U盘，制作安装启动盘</li>
+                            <li>将U盘插入电脑，重启设备，进入BIOS设置U盘为第一启动项</li>
+                            <li>进入MyLinux安装界面，根据提示选择语言、时区、磁盘分区</li>
+                            <li>设置用户名与密码，等待系统自动安装，全程约5-10分钟</li>
+                            <li>安装完成后重启电脑，拔出U盘，即可进入系统桌面</li>
+                        </ol>
+                    </div>
+
+                    <div id="use" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-6 pb-2 border-b">二、基础使用指南</h2>
+                        <p class="text-gray-600 mb-4">系统预装常用办公、终端、开发工具，开箱即用，基础操作如下：</p>
+                        <ul class="list-disc list-inside space-y-3 text-gray-600">
+                            <li>终端快捷键：Ctrl+Alt+T 快速打开终端</li>
+                            <li>软件安装：支持一键命令安装，兼容主流Linux安装指令</li>
+                            <li>系统更新：内置更新工具，可一键检测并升级系统版本</li>
+                            <li>桌面设置：支持壁纸、分辨率、主题、字体自定义调整</li>
+                        </ul>
+                    </div>
+
+                    <div id="repo" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-6 pb-2 border-b">三、软件仓库说明</h2>
+                        <p class="text-gray-600 mb-4">MyLinux内置官方专属软件源，同步开源最新软件，安全稳定、下载速度快。</p>
+                        <ul class="list-disc list-inside space-y-3 text-gray-600">
+                            <li>默认开启官方软件源，无需手动配置</li>
+                            <li>支持批量更新、软件卸载、版本回退</li>
+                            <li>兼容第三方开源软件仓库，可自主添加扩展源</li>
+                            <li>所有软件均经过安全检测，无恶意捆绑</li>
+                        </ul>
+                    </div>
+
+                    <div id="faq" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-6 pb-2 border-b">四、常见问题FAQ</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Q1：安装过程中磁盘分区失败怎么办？</h4>
+                                <p class="text-gray-600">建议提前清空目标磁盘数据，选择自动分区模式，新手不建议手动分区，避免分区格式错误。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Q2：系统开机卡顿、运行缓慢如何优化？</h4>
+                                <p class="text-gray-600">关闭开机自启冗余服务，更新系统内核，低配设备可关闭桌面特效，大幅提升运行速度。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Q3：如何升级系统最新版本？</h4>
+                                <p class="text-gray-600">打开终端输入系统更新命令，即可一键检测升级，保留用户数据不丢失。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Q4：是否支持双系统安装？</h4>
+                                <p class="text-gray-600">支持Windows+MyLinux双系统安装，需单独划分磁盘分区，安装教程可参考社区详细指南。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MyLinux</h3>
+                    <p class="text-gray-400 text-sm">自研轻量化开源Linux操作系统，专注稳定、安全、易用。</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">首页</a></li>
+                        <li><a href="download.html" class="hover:text-white transition-colors">系统下载</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">官方文档</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">关于项目</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">开源支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">GitHub仓库</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">更新日志</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">开源协议</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">帮助支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="docs.html" class="hover:text-white transition-colors">安装教程</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">常见问题</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500 text-sm">
+                © 2026 MyLinux. All Rights Reserved. 遵循开源协议开源免费
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
